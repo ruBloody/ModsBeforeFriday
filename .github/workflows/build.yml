@@ -1,7 +1,5 @@
 name: "Compile and deploy"
-on:
-  push:
-    branches: ['deploy']
+on: push
 permissions:
   contents: read
   pages: write
