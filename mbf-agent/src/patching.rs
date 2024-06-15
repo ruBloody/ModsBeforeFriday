@@ -194,7 +194,7 @@ fn apply_diff(from_path: &Path,
     // Verify the CRC32 hash of the file content.
     info!("Verifying installation is unmodified");
     let before_crc = ZIP_CRC.checksum(&file_content);
-    if before_crc != diff.file_crc {
+    if before_crc == diff.file_crc {
         return Err(anyhow!("File CRC {} did not match expected value of {}. 
             Your installation is corrupted, so MBF can't downgrade it. Reinstall Beat Saber to fix this issue!
             Alternatively, if your game is pirated, purchase a legitimate copy of the game.", before_crc, diff.file_crc));
